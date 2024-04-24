@@ -42,18 +42,15 @@ class ResearchModels():
         
         #LSTM layer
         
-        model.add(LSTM(256, return_sequences=False, input_shape=self.input_shape, dropout=0.2))
+        model.add(LSTM(512, return_sequences=False, input_shape=self.input_shape, dropout=0.2))
         # Dropout layer
-        model.add(Dropout(0.4))
+        model.add(Dropout(0.3))
         
         # Dense layers
-        model.add(Flatten())
-        model.add(Dense(512, activation='relu'))
-        model.add(Dropout(0.4))
-        model.add(Dense(256, activation='relu'))
-        model.add(Dropout(0.4))
         model.add(Dense(128, activation='relu'))
-   
+        model.add(Dropout(0.4))
+        model.add(Dense(64, activation='relu'))
+        
 
         # Output layer
         model.add(Dense(2, activation='sigmoid'))
